@@ -1,6 +1,6 @@
-#! /bin/sh
+#!/bin/sh
 
-if [grep -q datadrive "/etc/fstab"]
+if [ $(grep -q datadrive "/etc/fstab") ]
 then
     echo "The datadrive is already added to /etc/fstab."
 else
@@ -14,6 +14,6 @@ else
         echo "UUID=${DataDiskUUID}   /datadrive   xfs   defaults,nofail   1   2" >> /etc/fstab
         echo "Datadisk should now be added to /etc/fstab."
     else
-        echo "Trouble attaching disk. Please make sure a disk is attatched to the VM at LUN 0."
+        echo "Trouble attaching disk. Please make sure a disk is attatched to the VM."
     fi
 fi
